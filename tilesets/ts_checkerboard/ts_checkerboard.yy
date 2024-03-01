@@ -1,13 +1,13 @@
 {
   "$GMTileSet":"",
-  "%Name":"ts_grass",
+  "%Name":"ts_checkerboard",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"ts_grass",
+  "name":"ts_checkerboard",
   "out_columns":2,
   "out_tilehborder":2,
   "out_tilevborder":2,
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_grass",
-    "path":"sprites/spr_grass/spr_grass.yy",
+    "name":"spr_checkerboard",
+    "path":"sprites/spr_checkerboard/spr_checkerboard.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -27,7 +27,7 @@
     "path":"texturegroups/Default",
   },
   "tileAnimation":{
-    "FrameData":[0,1,2,3,],
+    "FrameData":[0,1,2,3,4,5,],
     "SerialiseFrameCount":1,
   },
   "tileAnimationFrames":[],
@@ -38,5 +38,5 @@
   "tileWidth":32,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":4,
+  "tile_count":6,
 }
