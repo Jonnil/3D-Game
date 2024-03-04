@@ -1,0 +1,112 @@
+# Blender 4.0.2 MTL File: 'None'
+# www.blender.org
+
+newmtl mario_cap
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/red.png
+
+newmtl mario_eyes
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/mario_eyes_center_edit.png
+
+newmtl mario_face
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/skin.png
+
+newmtl mario_hair
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/hair.png
+
+newmtl mario_hair_sideburn
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/mario_sideburn_edit.png
+
+newmtl mario_hand
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/white.png
+
+newmtl mario_m_logo
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/mario_logo_edit.png
+
+newmtl mario_mustache
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/mario_mustache_edit.png
+
+newmtl mario_overalls
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/blue.png
+
+newmtl mario_shoes
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/shoe.png
+
+newmtl mario_yellow_button
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Nintendo 64 - Super Mario 64 - Mario/mario_overalls_button_edit.png

@@ -26,7 +26,10 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"mario.mtl","CopyToMask":-1,"filePath":"datafiles","name":"mario.mtl","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"mario.obj","CopyToMask":-1,"filePath":"datafiles","name":"mario.obj","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
@@ -35,12 +38,11 @@
   "name":"3D Game",
   "resources":[
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
+    {"id":{"name":"obj_game_object","path":"objects/obj_game_object/obj_game_object.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"load_obj","path":"scripts/load_obj/load_obj.yy",},},
     {"id":{"name":"vertex_add_point","path":"scripts/vertex_add_point/vertex_add_point.yy",},},
-    {"id":{"name":"spr_checkerboard","path":"sprites/spr_checkerboard/spr_checkerboard.yy",},},
     {"id":{"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},},
-    {"id":{"name":"ts_checkerboard","path":"tilesets/ts_checkerboard/ts_checkerboard.yy",},},
-    {"id":{"name":"ts_grass","path":"tilesets/ts_grass/ts_grass.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
