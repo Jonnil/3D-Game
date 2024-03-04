@@ -2,6 +2,20 @@ pitch = 0;
 direction = 0;
 z = 32;
 
+global.mouse_last_x = 0; /* Store the last known X position of the mouse */
+global.mouse_last_y = 0; /* Store the last known Y position of the mouse */
+global.mouse_moving = false; /* Flag to track mouse movement state */
+
+display_center_width = display_get_width() / 2;
+display_center_height = display_get_height() / 2;
+if (os_type == os_macosx) {
+	mouse_center_y_offset = 53; /* On my Macbook, I need this for some reason */
+} else {
+	mouse_center_y_offset = 0;
+}
+
+window_set_cursor(cr_none); /* Hide the cursor on screen */
+
 gpu_set_ztestenable(true);
 gpu_set_zwriteenable(true);
 
@@ -14,7 +28,6 @@ format = vertex_format_end();
 
 draw_set_lighting(true);
 draw_light_enable(1, true);
-
 gpu_set_fog(true, c_red, 100, 1000);
 
 var mario = instance_create_depth(500, 500, depth, obj_game_object);

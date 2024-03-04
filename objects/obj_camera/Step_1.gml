@@ -1,12 +1,15 @@
 /// @description Move around
 
-// This is pretty much all movement code from 3D in older versions of Game Maker.
+/* This is pretty much all movement code from 3D in older versions of Game Maker. */
 
-direction -= (display_mouse_get_x() - display_get_width() / 2) / 10;
-pitch = clamp(pitch - (display_mouse_get_y() - display_get_height() / 2) / 10, -80, 80);
+if (global.mouse_moving) {
+	direction -= (display_mouse_get_x() - display_center_width) / 10;
+	pitch = clamp(pitch - (display_mouse_get_y() - display_center_height) / 10, -80, 80);
+}
 
-display_mouse_set(display_get_width() / 2, display_get_height() / 2);
-window_set_cursor(cr_none); /* Hide the cursor on screen */
+if (os_type != os_macosx) {
+	display_mouse_set(display_center_width, display_center_height + mouse_center_y_offset); /* Set the mouse position to be in center of screen */
+}
 
 if (keyboard_check(vk_escape)){
     game_end();
