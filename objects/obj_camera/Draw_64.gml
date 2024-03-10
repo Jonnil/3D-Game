@@ -1,2 +1,5 @@
 draw_set_halign(fa_left);
-draw_text(32, 32, "mouse_moving: " + string(global.mouse_moving));
+draw_text_transformed_color(32, 32,
+"camera_distance: " + string(camera_distance) +
+"\n" + "camera_distance_max: " + string(camera_distance_max)
+, 1, 1, 0, c_white, c_white, c_white, c_white, 1);

@@ -1,6 +1,12 @@
-randomize()
+randomize();
 
-max_speed = 4;
+xfrom = x;
+yfrom = y;
+zfrom = 0;
+
+first_person_camera = false;
+camera_distance = 180;
+camera_distance_max = 300;
 
 pitch = 0;
 direction = 0;
@@ -10,8 +16,6 @@ global.mouse_last_x = 0; /* Store the last known X position of the mouse */
 global.mouse_last_y = 0; /* Store the last known Y position of the mouse */
 global.mouse_moving = false; /* Flag to track mouse movement state */
 
-display_center_width = display_get_width() / 2;
-display_center_height = display_get_height() / 2;
 if (os_type == os_macosx) {
 	mouse_center_y_offset = 53; /* On my Macbook, I need this for some reason */
 } else {
@@ -34,10 +38,6 @@ draw_set_lighting(true);
 draw_light_enable(1, true);
 gpu_set_fog(true, c_maroon, 100, 1000);
 gpu_set_cullmode(cull_clockwise);
-
-var mario = instance_create_depth(500, 500, depth, obj_game_object);
-mario.model = load_obj("mario.obj", "mario.mtl");
-mario.z = 0;
 
 var pb = instance_create_depth(700, 800, depth, obj_game_object);
 pb.model = load_obj("paulblartmonkeycop.obj", "paulblartmonkeycop.mtl");
