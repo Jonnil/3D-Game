@@ -1,6 +1,28 @@
-look_dir -= (window_mouse_get_x() - window_get_width() / 2) / 10;
-look_pitch -= (window_mouse_get_y() - window_get_height() / 2) / 10;
+/* Make it so that the mouse needs to leave the center of the screen further than 1 pixel */
+/* On some window sizes the mouse can't be in the center */
+//look_dir -= (window_mouse_get_x() - window_get_width() / 2) / 10;
+//look_pitch -= (window_mouse_get_y() - window_get_height() / 2) / 10;
+//look_pitch = clamp(look_pitch, -80, +80);
+
+// Define a threshold value
+var threshold = 2; // You can adjust this value as needed
+
+// Calculate the difference between the mouse position and the center of the window
+var x_difference = window_mouse_get_x() - window_get_width() / 2;
+var y_difference = window_mouse_get_y() - window_get_height() / 2;
+
+// Check if the absolute difference is greater than the threshold
+if abs(x_difference) > threshold {
+    look_dir -= x_difference / 10;
+}
+
+if abs(y_difference) > threshold {
+    look_pitch -= y_difference / 10;
+}
+
+// Clamp the pitch angle
 look_pitch = clamp(look_pitch, -80, +80);
+
 
 zrotation = direction + 90; /* Set the character to face the direction of movement */
 

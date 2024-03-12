@@ -14,6 +14,7 @@ if (first_person_camera) {
 } else {
 	zfrom = zto + camera_distance * dsin(obj_player.look_pitch);
 }
+
 camera_set_view_mat(camera, matrix_build_lookat(xfrom, yfrom, zfrom, xto, yto, zto, 0, 0, 1));
 camera_set_proj_mat(camera, matrix_build_projection_perspective_fov(-60, -window_get_width() / window_get_height(), 1, 32000));
 camera_apply(camera);

@@ -1,5 +1,5 @@
 /// @param filename
-function load_obj(filename, mtlname) {
+function load_obj(filename, mtlname, default_color = c_white) {
 	
 	// Open the file
 	var obj_file = file_text_open_read(filename);
@@ -12,13 +12,13 @@ function load_obj(filename, mtlname) {
 	var mtl_color = ds_map_create();
 	
 	ds_map_add(mtl_alpha, "None", 1);
-	ds_map_add(mtl_color, "None", c_white);
+	ds_map_add(mtl_color, "None", default_color);
 	
 	if (file_exists(mtl_file)) {
 		while(! file_text_eof(mtl_file)) {
 			var line = file_text_read_string(mtl_file);
 			file_text_readln(mtl_file);
-			// Split each line around the space character
+			/* Split each line around the space character */
 			var terms, index;
 			index = 0;
 			terms = array_create(string_count(line, " ") + 1, "");
@@ -126,7 +126,7 @@ function load_obj(filename, mtlname) {
 					var ny = ds_list_find_value(vertex_ny, real(data[2]) - 1);
 					var nz = ds_list_find_value(vertex_nz, real(data[2]) - 1);
 					
-					var color = c_white;
+					var color = default_color;
 					var alpha = 1;
 					if (ds_map_exists(mtl_color, active_mtl)) {
 						color = ds_map_find_value(mtl_color, active_mtl);
