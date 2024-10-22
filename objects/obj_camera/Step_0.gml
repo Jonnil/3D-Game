@@ -61,34 +61,4 @@ if keyboard_check(ord("R")){room_restart()}
 
 
 
-	if keyboard_check(ord("M")){
-	
-	with(instance_create_depth(room_width/2, room_height/2, depth, obj_game_object))
-	{
-		model = load_obj("monkey3.obj", "", choose(c_white,c_red,c_green,c_blue,c_lime,c_yellow,c_teal,c_maroon));
-		z = -20;
-		speed = irandom_range(1,6)
-		direction = irandom_range(0,360)
-	}
-	
-	}
-
-
-
-
-
-if mouse_check_button_pressed(mb_left){
-	with(instance_create_depth(obj_player.x, obj_player.y, depth, obj_game_object))
-	{
-		model = load_obj("monkey3.obj", "");
-		z = -20;
-		zrotation = obj_player.look_dir + 90
-		speed = 4
-		direction = obj_player.look_dir
-		obj_player.direction = obj_player.look_dir
-		
-		
-	}
-}
-
 draw_light_define_point(1, xfrom, yfrom, zfrom, room_width, c_white);

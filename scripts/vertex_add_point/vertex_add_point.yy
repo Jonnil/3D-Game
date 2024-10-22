@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"vertex_add_point",
   "isCompatibility":false,
   "isDnD":false,

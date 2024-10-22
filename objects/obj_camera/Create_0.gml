@@ -36,9 +36,12 @@ format = vertex_format_end();
 
 draw_set_lighting(true);
 draw_light_enable(1, true);
-gpu_set_fog(true, c_maroon, 100, 1000);
+gpu_set_fog(true, c_black, 100, 1000);
 gpu_set_cullmode(cull_clockwise);
 
+
+
+/*
 var pb = instance_create_depth(700, 800, depth, obj_game_object);
 pb.model = load_obj("paulblartmonkeycop.obj", "paulblartmonkeycop.mtl");
 pb.z = 0;
@@ -54,7 +57,7 @@ monkey.z = 0;
 var monkeysmooth = instance_create_depth(650, 345, depth, obj_game_object);
 monkeysmooth.model = load_obj("monkey4.obj", "monkey4.mtl");
 monkeysmooth.z = 0;
-
+*/
 
 /* Create the ground to walk on */
 vbuffer = vertex_create_buffer();
@@ -66,7 +69,7 @@ var s = 32;
 for (var i = 0; i < room_width; i += s) {
 	for (var j = 0; j < room_height; j += s) {
 		if ((i % (s * 2) == 0 && j % (s * 2) == 0) || (i % (s * 2) > 0 && j % (s * 2) > 0)) {
-			var color = c_red;
+			var color = c_white;
 		} else {
 			var color = c_white;
 		}
