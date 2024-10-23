@@ -51,6 +51,7 @@
   "resources":[
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_game_object","path":"objects/obj_game_object/obj_game_object.yy",},},
+    {"id":{"name":"obj_leveleditor_placed_object","path":"objects/obj_leveleditor_placed_object/obj_leveleditor_placed_object.yy",},},
     {"id":{"name":"obj_leveleditor","path":"objects/obj_leveleditor/obj_leveleditor.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"level_editor","path":"rooms/level_editor/level_editor.yy",},},
