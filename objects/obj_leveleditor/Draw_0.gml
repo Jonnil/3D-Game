@@ -41,6 +41,12 @@ if mouse_check_button_pressed(mb_left)
 if build_mode = 1
 {
 	draw_line_width_color(temp_x1,temp_y1,mouse_x,mouse_y,2,c_ltgray,c_ltgray)
+
+	draw_line(temp_x1,temp_y1,
+temp_x1 + lengthdir_x(32, point_direction(temp_x1,temp_y1,mouse_x,mouse_y)+270),
+temp_y1 + lengthdir_y(32, point_direction(temp_x1,temp_y1,mouse_x,mouse_y)+270))
+
+
 }
 
 
@@ -64,6 +70,27 @@ if keyboard_check(vk_control)
 {
 
 draw_line_width_color(80,room_height - 30,room_width - 80,room_height -  30, 10, c_yellow, c_yellow)
+
+
+
+
+#region /* Playtest */
+
+if keyboard_check(ord("P"))
+{
+	instance_create_depth(room_width/2,room_height/2,0,obj_camera)
+	instance_create_depth(room_width/2,room_height/2,0,obj_player)
+
+
+}
+
+
+
+#endregion /* Playtest END */
+
+
+
+
 
 
 

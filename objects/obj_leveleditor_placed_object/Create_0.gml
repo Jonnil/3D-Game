@@ -5,3 +5,12 @@ y2 = 0;
 
 
 width = irandom_range(2,6)
+
+
+
+
+
+
+
+
+draw_3d = 0

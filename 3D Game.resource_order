@@ -23,5 +23,7 @@
     {"name":"obj_player","order":2,"path":"objects/obj_player/obj_player.yy",},
     {"name":"level_editor","order":1,"path":"rooms/level_editor/level_editor.yy",},
     {"name":"load_obj","order":1,"path":"scripts/load_obj/load_obj.yy",},
+    {"name":"spr_test","order":1,"path":"sprites/spr_test/spr_test.yy",},
+    {"name":"spr_white","order":2,"path":"sprites/spr_white/spr_white.yy",},
   ],
 }
