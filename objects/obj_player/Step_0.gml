@@ -70,3 +70,12 @@ if (current_speed > max_speed) {
 }
 
 friction = 0.2;
+
+
+
+
+
+
+
+
+

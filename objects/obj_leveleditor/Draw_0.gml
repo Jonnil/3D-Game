@@ -1,77 +1,107 @@
+if keyboard_check_pressed(ord("1")) {mode = "wall_mode"}
+if keyboard_check_pressed(ord("2")) {mode = "decoration_mode"}
 
-if mouse_check_button_pressed(mb_right)
-{
-	if build_mode = 0
+
+
+
+
+
+
+#region /*Build mode*/
+
+
+	if keyboard_check_pressed(vk_up)
 	{
-		temp_x1 = mouse_x
-		temp_y1 = mouse_y
-		
-		build_mode = 1
+		var new_texture = get_string("sprite name: ","")	
+		if sprite_exists(asset_get_index(new_texture))
+		{
+			texture = asset_get_index(new_texture)
+		}
+		else
+		{
+			show_message("doesnt exi")
+		}
 	}
-	else
+
+
+	if keyboard_check_pressed(vk_left)
+	{
+		if subimg != 0
+		{
+			subimg --
+		}
+		
+	}
+	
+	if keyboard_check_pressed(vk_right)     //ADD CAP IF POSSIBLE
+	{
+		subimg ++
+		
+	}
+
+
+
+
+	if mouse_check_button_pressed(mb_right)
+	{
+		if build_mode = 0
+		{
+			temp_x1 = mouse_x
+			temp_y1 = mouse_y
+			
+			build_mode = 1
+		}
+		else
+		if build_mode = 1
+		{
+			build_mode = 0;
+			temp_x1 = mouse_x
+			temp_y1 = mouse_y
+			temp_x2 = mouse_x
+			temp_y2 = mouse_y
+		}
+	}
+
+	if mouse_check_button_pressed(mb_left)
+	{
+		if build_mode = 1
+		{
+			temp_x2 = mouse_x
+			temp_y2 = mouse_y
+		
+			obj = instance_create_depth(temp_x1, temp_y1, 0, obj_leveleditor_placed_object)
+			obj.x1 = temp_x1;
+			obj.y1 = temp_y1;
+			obj.x2 = temp_x2;
+			obj.y2 = temp_y2;
+			obj.sprite = texture
+			obj.subimg = subimg
+			obj.mode = string(mode)
+			
+			temp_x1 = temp_x2;
+			temp_y1 = temp_y2;
+		}
+	}
+
+
 	if build_mode = 1
 	{
-		build_mode = 0;
-		temp_x1 = mouse_x
-		temp_y1 = mouse_y
-		temp_x2 = mouse_x
-		temp_y2 = mouse_y
+		draw_line_width_color(temp_x1,temp_y1,mouse_x,mouse_y,2,c_ltgray,c_ltgray)
+
+		draw_line(temp_x1,temp_y1,
+	temp_x1 + lengthdir_x(32, point_direction(temp_x1,temp_y1,mouse_x,mouse_y)+270),
+	temp_y1 + lengthdir_y(32, point_direction(temp_x1,temp_y1,mouse_x,mouse_y)+270))
+
+
 	}
-}
 
-if mouse_check_button_pressed(mb_left)
-{
-	if build_mode = 1
-	{
-		temp_x2 = mouse_x
-		temp_y2 = mouse_y
-		
-		obj = instance_create_depth(temp_x1, temp_y1, 0, obj_leveleditor_placed_object)
-		obj.x1 = temp_x1;
-		obj.y1 = temp_y1;
-		obj.x2 = temp_x2;
-		obj.y2 = temp_y2;
-		
-		temp_x1 = temp_x2;
-		temp_y1 = temp_y2;
-	}
-}
+#endregion /*Build mode END*/
 
 
-if build_mode = 1
-{
-	draw_line_width_color(temp_x1,temp_y1,mouse_x,mouse_y,2,c_ltgray,c_ltgray)
-
-	draw_line(temp_x1,temp_y1,
-temp_x1 + lengthdir_x(32, point_direction(temp_x1,temp_y1,mouse_x,mouse_y)+270),
-temp_y1 + lengthdir_y(32, point_direction(temp_x1,temp_y1,mouse_x,mouse_y)+270))
-
-
-}
-
-
-if result_timer > 0
-{
-	var result_color = c_red;
-	if (result_positivity)
-	{
-		result_color = c_lime;
-		draw_line_width_color(room_width - 40,room_height - 80,room_width - 60,room_height -  35, 8, c_lime, c_lime);
-		draw_line_width_color(room_width - 85,room_height - 50,room_width - 60,room_height -  35, 8, c_lime, c_lime);
-	}
-	draw_set_halign(fa_right);
-	draw_set_valign(fa_bottom);
-	draw_text_transformed_color(room_width - 90, room_height - 40, string(result_message), 2, 2, 0, result_color, result_color, result_color, result_color, 1);
-	result_timer --
-}
 
 #region /* CTRL */
 if keyboard_check(vk_control)
 {
-
-draw_line_width_color(80,room_height - 30,room_width - 80,room_height -  30, 10, c_yellow, c_yellow)
-
-
 
 
 #region /* Playtest */
@@ -87,11 +117,6 @@ if keyboard_check(ord("P"))
 
 
 #endregion /* Playtest END */
-
-
-
-
-
 
 
 #region /* Save */
@@ -111,6 +136,9 @@ if keyboard_check_pressed(ord("S"))
 			y1: string(y1),
 			x2: string(x2),
 			y2: string(y2),
+			sprite: sprite,
+			subimg: subimg,
+			mode: string(mode)
 		};
 		data[array_length_1d(data)] = obj_data;
 	}
@@ -119,6 +147,16 @@ if keyboard_check_pressed(ord("S"))
 	file_text_close(file);
 }
 #endregion /* Save END */
+
+
+
+
+
+
+
+
+
+
 
 #region /* Load */
 if keyboard_check_pressed(ord("L"))
@@ -158,12 +196,18 @@ if keyboard_check_pressed(ord("L"))
 				new_obj.y1 = var_struct.y1;
 				new_obj.x2 = var_struct.x2;
 				new_obj.y2 = var_struct.y2;
+				new_obj.sprite = var_struct.sprite;
+				new_obj.subimg = var_struct.subimg;
+				new_obj.mode = var_struct.mode;
 			}
 			/* Reset the var struct variables after creating the object */
 			var_struct.x1 = 0;
 			var_struct.y1 = 0;
 			var_struct.x2 = 0;
 			var_struct.y2 = 0;
+			var_struct.sprite = 0;
+			var_struct.subimg = 0;
+			var_struct.mode = 0;
 		}
 		
 		ds_list_destroy(placed_objects_list);

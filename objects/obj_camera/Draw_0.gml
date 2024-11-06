@@ -5,7 +5,7 @@ var camera = camera_get_active();
 
 var xto = obj_player.x;
 var yto = obj_player.y;
-var zto = obj_player.z + 100;
+var zto = obj_player.z + 32;
 xfrom = xto - camera_distance * dcos(obj_player.look_dir);
 yfrom = yto + camera_distance * dsin(obj_player.look_dir);
 
@@ -22,4 +22,4 @@ camera_apply(camera);
 /* Anything drawn has to be drawn after the camera projections are set */
 with (obj_game_object) event_perform(ev_draw, 0);
 
-vertex_submit(vbuffer, pr_trianglelist, sprite_get_texture(spr_grass, 0)); /* Draw the ground to walk on */
+vertex_submit(vbuffer, pr_trianglelist, sprite_get_texture(floor_sprite, 0)); /* Draw the ground to walk on */

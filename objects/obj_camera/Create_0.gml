@@ -10,7 +10,7 @@ camera_distance_max = 300;
 
 pitch = 0;
 direction = 0;
-z = 32;
+z = 2;
 
 global.mouse_last_x = 0; /* Store the last known X position of the mouse */
 global.mouse_last_y = 0; /* Store the last known Y position of the mouse */
@@ -26,6 +26,9 @@ window_set_cursor(cr_none); /* Hide the cursor on screen */
 
 gpu_set_ztestenable(true);
 gpu_set_zwriteenable(true);
+
+gpu_set_alphatestenable(true)
+gpu_set_alphatestref(10)
 
 vertex_format_begin();
 vertex_format_add_position_3d();
@@ -63,24 +66,29 @@ monkeysmooth.z = 0;
 vbuffer = vertex_create_buffer();
 vertex_begin(vbuffer, format);
 
-var floor_z = 0;
+floor_sprite = spr_DOOM_dirt
 
-var s = 32;
-for (var i = 0; i < room_width; i += s) {
-	for (var j = 0; j < room_height; j += s) {
+var floor_z = 0;
+var _uv_data = sprite_get_uvs(floor_sprite, 0);
+var _umin = _uv_data[0], _vmin = _uv_data[1], _umax = _uv_data[2], _vmax = _uv_data[3];
+
+
+var s = 64;
+for (var i = 0; i < room_width*20; i += s) {
+	for (var j = 0; j < room_height*20; j += s) {
 		if ((i % (s * 2) == 0 && j % (s * 2) == 0) || (i % (s * 2) > 0 && j % (s * 2) > 0)) {
 			var color = c_white;
 		} else {
 			var color = c_white;
 		}
 		
-		vertex_add_point(vbuffer, i,		j,			floor_z,		0, 0, 1,		0, 0,		color, 1);
-		vertex_add_point(vbuffer, i,		j + s,		floor_z,		0, 0, 1,		1, 0,		color, 1);
-		vertex_add_point(vbuffer, i + s,	j + s,		floor_z,		0, 0, 1,		1, 1,		color, 1);
+		vertex_add_point(vbuffer, i,		j,			floor_z,		0, 0, 1,		_umin, _vmin,		color, 1);
+		vertex_add_point(vbuffer, i,		j + s,		floor_z,		0, 0, 1,		_umax, _vmin,		color, 1);
+		vertex_add_point(vbuffer, i + s,	j + s,		floor_z,		0, 0, 1,		_umax, _vmax,		color, 1);
 		
-		vertex_add_point(vbuffer, i + s,	j + s,		floor_z,		0, 0, 1,		1, 1,		color, 1);
-		vertex_add_point(vbuffer, i + s,	j,			floor_z,		0, 0, 1,		0, 1,		color, 1);
-		vertex_add_point(vbuffer, i,		j,			floor_z,		0, 0, 1,		0, 0,		color, 1);
+		vertex_add_point(vbuffer, i + s,	j + s,		floor_z,		0, 0, 1,		_umax, _vmax,		color, 1);
+		vertex_add_point(vbuffer, i + s,	j,			floor_z,		0, 0, 1,		_umin, _vmax,		color, 1);
+		vertex_add_point(vbuffer, i,		j,			floor_z,		0, 0, 1,		_umin, _vmin,		color, 1);
 	}
 }
 

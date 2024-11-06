@@ -13,3 +13,10 @@ level_name = get_string("Level Name", "Untitled");
 result_timer = 0
 result_duration = 120
 result_positivity = false;
+
+
+
+
+mode = "wall_mode"
+texture = spr_DOOM_stone
+subimg = 0
